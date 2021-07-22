@@ -1,0 +1,101 @@
+<div class="p-fluid">
+  <form [formGroup]="nuevoSitioForm" (ngSubmit)="guardaSitio()">
+
+
+    <!-- <p-autoComplete formControlName="city" [suggestions]="results" (completeMethod)="search($event)"></p-autoComplete> -->
+
+
+
+    <div class="p-field p-grid">
+      <label for="localidades" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Localidades</label>
+      <div class="p-col-12 p-md-10">
+        <p-multiSelect id="localidades" [options]="localidades" formControlName="localidades" defaultLabel="Localidades" optionLabel="nombre" display="chip"></p-multiSelect>
+      </div>
+    </div>
+
+    <div class="p-field p-grid">
+      <label for="firstname" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Nombre</label>
+      <div class="p-col-12 p-md-10">
+        <!-- <input id="firstname" type="text" pInputText formControlName="nombre"> -->
+        <p-autoComplete formControlName="nombre" [suggestions]="results" (completeMethod)="search($event)"></p-autoComplete>
+        <small class="p-error" *ngIf="campoEsValido('nombre')">El nombre del sitio web es requerido</small>
+      </div>
+    </div>
+    <div class="p-field p-grid">
+      <label for="firstname" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Descripción</label>
+      <div class="p-col-12 p-md-10">
+        <!-- <textarea pInputTextarea formControlName="descripcion"></textarea> -->
+        <p-editor formControlName="description" formControlName="descripcion" [style]="{'height':'320px'}"></p-editor>
+        <small class="p-error" *ngIf="campoEsValido('descripcion')">Se debe registrar la descripción del sitio
+          web</small>
+      </div>
+    </div>
+
+    <div class="p-field p-grid">
+      <label for="lastname" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Enlace</label>
+      <div class="p-col-12 p-md-10">
+        <input id="lastname" type="text" pInputText formControlName="enlace">
+        <small class="p-error" *ngIf="campoEsValido('enlace')">Debe ser un enlace válido</small>
+      </div>
+    </div>
+
+    <div class="p-field p-grid">
+      <label for="lastname" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">TIPO</label>
+      <div class="p-col-12 p-md-10">
+
+
+        <div class="p-field-checkbox" >
+          <ng-container *ngFor="let item of tipo; let i = index">
+          <p-checkbox
+          [(ngModel)]="tiposSeleccionados"
+          [ngModelOptions]="{standalone: true}"
+          [value]="item"
+          [inputId]="'nom'+i"
+          (onChange)="tiposCambio($event.checked, item)"></p-checkbox>
+          <label [for]="'nom'+i"> {{ item }} </label>
+          <small class="p-error" *ngIf="campoEsValido('tiposForma')">unito at least</small>
+        </ng-container>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- <div class="p-field p-grid">
+      <label for="lastname" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">TIPO</label>
+
+      <div class="p-field-checkbox" >
+        <ng-container *ngFor="let item of tipo; let i = index">
+        <p-checkbox [name]="'nom'+i" [value]="item"  [inputId]="'nom'+i" ></p-checkbox>
+        <label [for]="'nom'+i"> {{ item }} </label>
+      </ng-container>
+      </div>
+
+    </div> -->
+
+    <hr>
+
+
+
+
+
+    <hr>
+
+    <div class="p-field p-grid">
+      <label for="lastname" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0"> ----</label>
+      <div class="p-col-12 p-md-10">
+        <p-button icon="pi pi-iconName" label="Guardar" type="submit" [disabled]="!nuevoSitioForm.valid"></p-button>
+
+      </div>
+    </div>
+
+
+
+  </form>
+</div>
+
+
+<pre>
+
+  {{  selectedCities3 | json}}
+</pre>

@@ -1,0 +1,13 @@
+<p-menubar [model]="items">
+  <ng-template pTemplate="start">
+      <img src="assets/fugalogo.gif" height="40" class="p-mr-2" routerLink="/" style="cursor: pointer">
+  </ng-template>
+  <ng-template pTemplate="end">
+
+      <button type="button" pButton label="Salir" icon="pi pi-power-off" style="margin-left:.25em"
+      (click)="salir()"
+      *ngIf="isAuthenticated"
+      ></button>
+
+  </ng-template>
+</p-menubar>

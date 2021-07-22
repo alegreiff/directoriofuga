@@ -1,0 +1,10 @@
+<p-card>
+  <ng-template pTemplate="header">
+      {{ sitio.nombre }}
+  </ng-template>
+  <p [innerHTML]="sitio.descripcion"></p>
+  <ng-template pTemplate="footer">
+    <a pButton class="p-ml-auto p-button-raised p-button-text" label="Visitar" [href]="sitio.enlace" target="_blank"></a>
+    <app-categ-fuga [tipos]="sitio.tipo" *ngIf="sitio.tipo"></app-categ-fuga>
+  </ng-template>
+</p-card>

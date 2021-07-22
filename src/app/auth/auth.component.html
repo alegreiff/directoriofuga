@@ -1,0 +1,54 @@
+https://www.udemy.com/course/the-complete-guide-to-angular-2/learn/lecture/14466432#overview
+<div *ngIf="isLoading" style="text-align: center;">
+  <loadingSpinner></loadingSpinner>
+</div>
+<p-dialog header="ERROR" [(visible)]="displayError" *ngIf="error">
+  {{ error }}
+</p-dialog>
+<form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" *ngIf="!isLoading">
+  <div class="p-field p-grid">
+    <label for="correo" class="p-col-fixed" style="width:100px">Correo</label>
+    <div class="p-col">
+      <input
+      id="correo" type="text" pInputText
+      ngModel
+      name="email"
+      required
+      email
+      >
+    </div>
+  </div>
+  <div class="p-field p-grid">
+    <label for="password" class="p-col-fixed" style="width:100px">Contraseña</label>
+    <div class="p-col">
+      <input
+      id="password" type="password" pInputText
+      ngModel
+      name="password"
+      required
+      minlength="6"
+      >
+    </div>
+  </div>
+  <div class="p-field p-grid">
+    <p-button icon="pi pi-iconName" [label]=" isLoginMode ? 'Log In' : 'Register' " type="submit" [disabled]="!authForm.valid" ></p-button>
+    <p-button icon="pi pi-iconName" [label]="isLoginMode ? 'Cambiar a register' : 'Cambiar a Log in' " (click)
+    ="onSwitchMode()" type="button"></p-button>
+    <p-button icon="pi pi-iconName" label="Gugol" type="button" (click)="gogol()"></p-button>
+  </div>
+
+</form>
+
+<div *ngIf="estadoUsuario">
+  <pre>
+    {{ estadoUsuario | json }}
+  </pre>
+
+</div>
+
+<div *ngIf="datostemporales">
+  <pre>
+    {{ datostemporales | json }}
+  </pre>
+
+</div>

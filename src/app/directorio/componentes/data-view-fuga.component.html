@@ -1,0 +1,59 @@
+<p-dataView #dv [value]="products" [paginator]="paginator" [rows]="elementos" (onChangeLayout)="cambiaLayout($event.layout)" filterBy="nombre,descripcion,tipo"
+  [sortField]="sortField" [sortOrder]="sortOrder" layout="grid">
+  <ng-template pTemplate="header">
+    <div class="p-d-flex p-flex-column p-flex-md-row p-jc-md-between">
+      <p-button label="Santa Fe" (click)="activaFiltraLocal(3)"></p-button>
+      <p-button label="Los Mártires" (click)="activaFiltraLocal(14)"></p-button>
+      <p-button label="La Candelaria" (click)="activaFiltraLocal(17)"></p-button>
+      <p-button label="Todos" (click)="activaFiltraLocal(99)"></p-button>
+      <span class="p-input-icon-left p-mb-2 p-mb-md-0">
+        <i class="pi pi-search"></i>
+        <input type="search" pInputText placeholder="Buscar" (input)="dv.filter($event.target.value)">
+      </span>
+      <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+    </div>
+  </ng-template>
+  <ng-template let-web pTemplate="listItem">
+    <div class="p-col-12">
+      <div class="product-list-item">
+        <div class="product-list-detail">
+          <div class="product-name">{{web.nombre}} <button pButton pRipple type="button" label="Más información" class="p-button-raised p-button-text"
+            (click)="activaDetalle(web)"></button><a pButton class="p-ml-auto p-button-raised p-button-text" label="Visitar" [href]="web.enlace"
+            target="_blank"></a></div>
+        </div>
+        <!-- <div class="product-list-action">
+
+        </div> -->
+      </div>
+    </div>
+  </ng-template>
+  <ng-template let-web pTemplate="gridItem">
+    <div class="p-col-12 p-lg-4 p-p-1 parenty">
+      <p-card styleClass="card_fuga">
+        <ng-template pTemplate="header">
+          <span class="titulo">{{ web.nombre }}</span>
+        </ng-template>
+        <ng-template pTemplate="footer">
+          <div class="p-d-flex p-p-3 card">
+            <button pButton pRipple type="button" label="Más información" class="p-button-raised p-button-text"
+              (click)="activaDetalle(web)"></button>
+            <a pButton class="p-ml-auto p-button-raised p-button-text" label="Visitar" [href]="web.enlace"
+              target="_blank"></a>
+            <p-button *ngIf="isAuthenticated" icon="pi pi-iconName" label="Edita" (click)="activaEdita(web)"></p-button>
+          </div>
+          <app-categ-fuga [tipos]="web.tipo" *ngIf="web.tipo"></app-categ-fuga>
+          <app-localidades-fuga [datos]="web.localidades" color="danger" *ngIf="web.localidades"></app-localidades-fuga>
+
+        </ng-template>
+      </p-card>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="footer">
+    Contenidos en construcción (JDG FUGA 2021)
+
+  </ng-template>
+  <ng-template pTemplate="empty">
+    Los contenidos están siendo cargados
+  </ng-template>
+
+</p-dataView>

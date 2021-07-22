@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "fuga-plataforma": {
+      "hosting": {
+        "directorio-fuga": [
+          "fuga-plataforma"
+        ]
+      }
+    }
+  }
+}

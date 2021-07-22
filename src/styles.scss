@@ -1,1 +1,57 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "../node_modules/primeicons/primeicons.css";
+//@import "../node_modules/primeng/resources/themes/saga-orange/theme.css";
+//@import "../node_modules/primeng/resources/themes/mdc-light-indigo/theme.css";
+
+@import "../node_modules/primeng/resources/themes/rhea/theme.css";
+@import "../node_modules/primeng/resources/primeng.min.css";
+@import "../node_modules/primeflex/primeflex.css";
+@import "../node_modules/quill/dist/quill.core.css";
+@import "../node_modules/quill/dist/quill.snow.css";
+
+
+
+.contenedorFuga{
+  max-width: 1600px;
+  margin: 0 auto;
+
+}
+
+
+.p-card-header{
+  padding: 1em;
+  & span.titulo{
+    font-size: 1.2em;
+    color: rgb(56, 56, 56);
+  }
+}
+
+.chip-fuga-categoria{
+  /* background-color: purple;
+  color: white;
+  font-size: 0.8em; */
+
+  min-width: 125px;
+  text-align: center;
+  display: inline-block;
+}
+
+.card_fuga{
+  height: 250px;
+
+
+}
+
+.p-card-footer	{
+
+}
+
+.p-card-header	{
+
+  padding: 0.4em 0.6em;
+}
+
+.p-card-content	{
+
+}

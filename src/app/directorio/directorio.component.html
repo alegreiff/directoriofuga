@@ -1,0 +1,59 @@
+<directorioHeader [tipo]="tipo"></directorioHeader>
+<!-- <p-button label="Santa Fe" (click)="filtraLocal(3)"></p-button>
+<p-button label="Los Mártires" (click)="filtraLocal(14)"></p-button>
+<p-button label="La Candelaria" (click)="filtraLocal(17)"></p-button>
+<p-button label="Todos" (click)="filtraLocal(99)"></p-button> -->
+<app-data-view-fuga
+[products]="websF"
+[isAuthenticated]="isAuthenticated"
+(detalle)="detalle($event)"
+(edita)="edita($event)"
+(filtraLocal)="filtraLocal($event)"
+></app-data-view-fuga>
+
+
+<p-dialog [header]="titulo" [(visible)]="muestraEdicion">
+  <app-directorio-nuevo
+  [sitio]="webActiva"
+  (cerrarModalEdicion)="cierraEdicion($event)"
+  ></app-directorio-nuevo>
+</p-dialog>
+
+
+<p-dialog [header]="tituloDetalle"
+[(visible)]="muestraDetalle" *ngIf="webDetalle"
+[style]="{width: '50vw'}"
+[modal]="true"
+>
+  <!-- <app-directorio-nuevo
+  [sitio]="webDetalle"
+  (cerrarModalEdicion)="cierraEdicion($event)"
+  ></app-directorio-nuevo> -->
+  <app-directorio-single
+  [sitioid]="idDetalle"
+  ></app-directorio-single>
+</p-dialog>
+
+
+
+
+
+
+<!-- <ng-template pTemplate="footer">
+  <p-button icon="pi pi-iconName" label="Ver detalles" class="p-p-2 p-button-sm" [routerLink]="[web.id]"></p-button>
+
+  <a pButton icon="pi pi-iconName" label="Ver detalles" class="p-p-2 p-button-sm" [routerLink]="[web.id]"></a>
+
+  <a pButton icon="pi pi-angle-double-right" class="p-button-sm p-button-info p-p-2" label="Visitar" [href]="web.enlace" target="_blank"></a>
+
+
+  <p-button *ngIf="isAuthenticated"  icon="pi pi-iconName" label="Edita" (click)="edita(web)"></p-button>
+
+  <ng-container >
+    <div class="p-d-flex p-ai-center p-mt-1">
+      <p-tag styleClass="p-mr-2" [rounded]="true" severity="info" [value]="item" *ngFor="let item of web.tipo"></p-tag>
+  </div>
+
+  </ng-container>
+
+</ng-template> -->
