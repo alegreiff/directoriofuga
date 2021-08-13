@@ -84,6 +84,11 @@ export class MenuSuperiorComponent implements OnInit, OnDestroy {
           icon: 'pi pi-th-large',
           routerLink: 'institucional',
         },
+        {
+          label: 'Glosario',
+          icon: 'pi pi-th-large',
+          routerLink: 'glosario',
+        },
       ];
     }
   }

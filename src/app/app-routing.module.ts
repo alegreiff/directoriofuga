@@ -31,6 +31,7 @@ const routes: Routes = [
     path: 'admin',
     loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
+  { path: 'glosario', loadChildren: () => import('./glosario/glosario.module').then(m => m.GlosarioModule) },
 ];
 
 @NgModule({
